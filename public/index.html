@@ -12,7 +12,7 @@
 </head>
 
 <body ng-app="myApp" ng-controller="SwapiController as vm">
-    <h1>Star Wars API</h1>
+    <!-- <h1>Star Wars API</h1>
     <p><input type="number" ng-model="vm.speciesId" placeholder="Enter a number" /></p>
     <p><button ng-click="vm.getSpecies(vm.speciesId)">Get Species Data</button></p>
 
@@ -24,13 +24,18 @@
                 <a href="{{vm.speciesResult.films[0]}}">{{vm.filmResult.title}}</a>
             </li>
         </ul>
-    </div>
+    </div> -->
     <h2>Giphs</h2>
     <p><button ng-click="vm.getTrendingGiphy()">Get Random Giph</button></p>
     <div>
         <img ng-src="{{vm.giphyResult.data.image_original_url}}"  />
     </div>
-
+     <p><input type="string" ng-model="vm.giphSearch" placeholder="Search for a gipg" /></p>
+     <p><button ng-click="vm.searchGiphy(vm.giphSearch)">Search For Gif</button></p>
+    <div>
+        <img ng-src="{{vm.giphyResult.data[0].images.fixed_height.url}}"  /> 
+        {{vm}}
+    </div>
 </body>
 
 </html>
