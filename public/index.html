@@ -30,11 +30,10 @@
     <div>
         <img ng-src="{{vm.giphyResult.data.image_original_url}}"  />
     </div>
-     <p><input type="string" ng-model="vm.giphSearch" placeholder="Search for a gipg" /></p>
+     <p><input type="string" ng-model="vm.giphSearch" placeholder="Search for a giph" /></p>
      <p><button ng-click="vm.searchGiphy(vm.giphSearch)">Search For Gif</button></p>
-    <div>
-        <img ng-src="{{vm.giphyResult.data[0].images.fixed_height.url}}"  /> 
-        {{vm}}
+    <div ng-repeat="thing in  vm.giphyResult.data">
+        <img ng-src="{{thing.images.fixed_height.url}}"/> 
     </div>
 </body>
 
