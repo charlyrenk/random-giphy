@@ -4,7 +4,7 @@ app.controller('SwapiController', ['$http', function($http) {
     console.log('controller loaded');
 
     var self = this;
-    var giphyAPIKey = '';   // your API Key
+    var giphyAPIKey = '618f921ed0544d0289c3d79e87a4a365';   // your API Key
 
     self.getSpecies = function(id) {
 
@@ -23,7 +23,7 @@ app.controller('SwapiController', ['$http', function($http) {
     self.getTrendingGiphy = function() {
         // example request:
         // http://api.giphy.com/v1/gifs/search?q=ryan+gosling&api_key=YOUR_API_KEY&limit=5
-        var baseUrl = 'http://api.giphy.com/v1/gifs/trending?';
+        var baseUrl = 'http://api.giphy.com/v1/gifs/random?';
         baseUrl += 'api_key=' + giphyAPIKey;    // api key
         baseUrl += '&limit=5';  // limit
         baseUrl += '&rating=g'; // rating
@@ -31,8 +31,8 @@ app.controller('SwapiController', ['$http', function($http) {
         console.log('baseUrl: ', baseUrl);
         
         $http.get(baseUrl).then(function(response) {
-            console.log('trendaing giphys ', response.data);
-            
+            console.log('trending giphys ', response.data);
+            self.giphyResult = response.data;
         });
     };
 

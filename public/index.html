@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SWAPI!</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+    <script src="client.js"></script>
+</head>
+
+<body ng-app="myApp" ng-controller="SwapiController as vm">
+    <h1>Star Wars API</h1>
+    <p><input type="number" ng-model="vm.speciesId" placeholder="Enter a number" /></p>
+    <p><button ng-click="vm.getSpecies(vm.speciesId)">Get Species Data</button></p>
+
+    <div>
+        <h2>{{vm.speciesResult.name}}</h2>
+        <h2>First Appeared in:</h2>
+        <ul>
+            <li>
+                <a href="{{vm.speciesResult.films[0]}}">{{vm.filmResult.title}}</a>
+            </li>
+        </ul>
+    </div>
+    <h2>Giphs</h2>
+    <p><button ng-click="vm.getTrendingGiphy()">Get Random Giph</button></p>
+    <div>
+        <img ng-src="{{vm.giphyResult.data.image_original_url}}"  />
+    </div>
+
+</body>
+
+</html>
